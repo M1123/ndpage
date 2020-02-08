@@ -1,12 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() { 
-    let tabs = document.querySelectorAll('.list__item');
-    let contentItems = document.querySelectorAll('.content__item');
+    let tabs = document.getElementsByClassName('list__item');
+    let contentItems = document.getElementsByClassName('content__item');
     for (let i = 0; i < tabs.length; i++) {
-        tabs[i].onclick = function(){
-        contentItems.forEach(n=>n.className ='content__item');
-        contentItems[i].className += ' content__item--active';
-        tabs.forEach(n=>n.className='list__item');
-        tabs[i].className+=' list__item--active';
+        tabs[i].onclick = function(e){
+            console.log(e.target.id)
+            
+            for (let j = 0; j < tabs.length; j++) {
+                contentItems[j].className ='content__item';
+                tabs[j].className = 'list__item';
+            }
+            e.target.className='list__item list__item--active';
+            contentItems[e.target.id].className = 'content__item content__item--active';
        }
     }}
 );
+
+
+
+// document.addEventListener('DOMContentLoaded', function() { 
+//     let tabs = document.getElementsByClassName('list__item');
+//     let contentItems = document.getElementsByClassName('content__item');
+
+//     // for (let i = 0; i < tabs.length; i++) {
+//         // tabs[i].addEventListener('click', function() {
+//         // })
+//         function swt(k){
+//             for (let j = 0; j < tabs.length; j++) {
+//                 if(k==j){contentItems[j].className ='content__item content__item--active'}else{contentItems[j].className =  'content__item'};
+//                 if(k==j){tabs[j].className = 'list__item list__item--active'}else{tabs[j].className = 'list__item'};
+//             }
+//        }
+//     // }}
+// );
