@@ -51,9 +51,11 @@
     }
     .content{
         padding: 10px 20px;
+        width: calc(90vw - 450px);
+        margin: 0 auto;
     }
     .list{
-      width: 360px;
+        width: 360px;
     }
     .list__item{
         display: block;
@@ -78,7 +80,6 @@
     .wrapper{
         border: 1px solid #f0f0f0;
         display: flex;
-        width: 90vw;
         margin: auto;
     }
     .content{

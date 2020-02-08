@@ -1,4 +1,4 @@
-const data = [{
+var data = [{
     "Транспортные аварии":[ 
         "аварии поездов и судов",
         "ДТП",
@@ -98,26 +98,26 @@ const data = [{
     ]
 }]
 document.addEventListener('DOMContentLoaded', function() { 
-    for (let k = 0; k < data.length; k++) {
+    for (var k = 0; k < data.length; k++) {
         var array = Object.keys(data[k]);
-        for (let i = 0; i < array.length; i++) {
-            let div = document.createElement('div');
+        for (var i = 0; i < array.length; i++) {
+            var div = document.createElement('div');
             div.className = "content__item";
             div.textContent = array[i];
             document.getElementsByClassName('content__items')[k].appendChild(div);  
 
             div.onclick = function(e){
-                let parent = e.target.parentElement;
-                let modalItems = data[parent.id][e.target.textContent];
+                var parent = e.target.parentElement;
+                var modalItems = data[parent.id][e.target.textContent];
                 try {
                     document.getElementsByClassName('content__item--active')[0].className = 'content__item content__item--visited';                    
                 } catch (error) {};
-                div.className = "content__item content__item--active ";
+                e.target.className = "content__item content__item--active ";
                 document.getElementsByClassName('modal')[0].className += " modal--active"
                 document.getElementsByClassName('modal__title')[0].textContent = e.target.textContent;
                 document.getElementsByClassName('modal__items')[0].innerHTML='';
-                for (let j = 0; j < array.length; j++) {
-                    let modalItem = document.createElement('div');
+                for (var j = 0; j < array.length; j++) {
+                    var modalItem = document.createElement('div');
                     modalItem.className = "modal__item";
                     modalItem.textContent = modalItems[j];
                     document.getElementsByClassName('modal__items')[0].appendChild(modalItem);
